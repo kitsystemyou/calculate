@@ -10,14 +10,11 @@ def is_full(array: list[bool], k: int) -> bool:
 
 def calulate_dice_result(array: list[bool], k: int) -> list[bool]:
     dice: int = random.randint(1, 100)
-    # print("dice: ", dice)
     dice -= 1
     if dice > k - 1:
-        # print("dice is bigger than k")
         array[dice] = True
         return array
     else:
-        # print("dice is smoller than k")
         # Change a random false value to true (bigger than k)
         false_indices = [i for i, val in enumerate(array[k:]) if not val]
         if false_indices:
@@ -49,7 +46,3 @@ if __name__ == "__main__":
         result_array = try_100_games(k)
         print("success rate = ", result_array.count(True) / len(result_array))
     print("-- END --")
-    # for i, val in enumerate(array):
-    #     print(i, val)
-
-# TODO: 200times, calculate whether 80% or not
